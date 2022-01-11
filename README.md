@@ -2,6 +2,8 @@
 
 p2p service registry and port assignment
 
+*NOTE* - this is readme driven development. Features will be implemented when this note is removed.
+
 Seaport makes it so you won't need to spend so much effort keeping configuration files current as your
 architecture grows to span many processes on many machines. Just register your
 services with seaport and then query seaport to see where your services are running.
