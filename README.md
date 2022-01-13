@@ -2,7 +2,7 @@
 
 p2p service registry and port assignment
 
-*NOTE* - this is readme driven development. Features will be implemented when this note is removed.
+*NOTE* - this is readme driven development. Features will be implemented when this note is removed. see [spork](https://spork.sh/) for some idea how the p2p portions would be implemented.
 
 Seaport makes it so you won't need to spend so much effort keeping configuration files current as your
 architecture grows to span many processes on many machines. Just register your
