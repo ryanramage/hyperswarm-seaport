@@ -4,7 +4,7 @@
   "description": "p2p service registry and port assignment",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "standard && tap test/*.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/ryanramage/hyperswarm-seaport#readme",
   "devDependencies": {
+    "standard": "^16.0.4",
     "tap": "^15.1.6",
     "tape": "^5.4.0"
   }
