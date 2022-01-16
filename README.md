@@ -53,7 +53,7 @@ const {host, port} = await ports.get('web@1.2.x')
 request(`http://${host}:${port}`).pipe(process.stdout)
 ```
 
-for the client, the host always will be localhost, with a spork activated local proxy that will connect to the service registered above
+for the client, the host always will be localhost, with a spork activated port that will proxy to the service registered above
 
 ## Result
 
