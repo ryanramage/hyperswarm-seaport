@@ -45,14 +45,15 @@ this will register a spork bound local port, the pubkey will be submitted to the
 next just `get()` that `'web'` service
 
 ``` js
+const request = require('request')
 const seaport = require('hyperswarm-seaport');
 const pubkey = process.argv[2]
 const ports = seaport.connect(pubkey);
-const request = require('request')
-ports.get('web@1.2.x', (ps) => request(`http://${ps[0].host}:${ps[0].port}`).pipe(process.stdout))
+const {host, port} = await ports.get('web@1.2.x')
+request(`http://${host}:${port}`).pipe(process.stdout)
 ```
 
-for the client, the host (ps[0].host) will be localhost, with a spork activated local proxy that will connect to the service registered above
+for the client, the host always will be localhost, with a spork activated local proxy that will connect to the service registered above
 
 ## Result
 

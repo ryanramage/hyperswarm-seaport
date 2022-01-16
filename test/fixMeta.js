@@ -1,5 +1,5 @@
-const test = require('tape')
-const fixMeta = require('../lib/fixMeta')
+import test from 'tape'
+import fixMeta from '../lib/fixMeta.js'
 
 test('normal roles from package.js', t => {
   const meta = fixMeta('web@1.2.3')
