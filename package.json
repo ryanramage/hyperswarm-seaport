@@ -36,6 +36,7 @@
     "get-port": "^6.0.0",
     "json-rpc-on-a-stream": "^1.0.0",
     "pump": "^3.0.0",
+    "rc": "^1.2.8",
     "semver": "^7.3.5",
     "semver-store": "^0.3.0"
   }
