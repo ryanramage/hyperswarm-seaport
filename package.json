@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/ryanramage/hyperswarm-seaport#readme",
   "devDependencies": {
+    "got": "^12.0.1",
     "standard": "^16.0.4",
     "tap": "^15.1.6",
     "tape": "^5.4.0"

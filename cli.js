@@ -17,15 +17,19 @@ async function registry () {
 }
 
 async function server (registryPubkey, port, roleVersion) {
+  if (!port) {
+    console.log('running client on cli needs a port specified. use -p <port>')
+    process.exit(1)
+  }
   const meta = fixMeta(roleVersion)
-
   await AtekNet.setup()
   const keyPair = AtekNet.createKeypair()
-  console.log('Created temporary keypair, public key:', toBase32(keyPair.publicKey))
+  const publicKey = toBase32(keyPair.publicKey)
+  console.log('Created keypair, public key: ', publicKey)
   bind('localhost', port, keyPair)
 
   const localRegistry = new LocalRegistry(registryPubkey)
-  localRegistry.register(meta, toBase32(keyPair.publicKey))
+  localRegistry.register(meta, publicKey)
   console.log('connected to registry')
 }
 
@@ -39,17 +43,10 @@ async function client (registryPubKey, port, roleVersion) {
 
 const options = rc('seaport')
 const command = options._[0]
+const registryPubKey = options._[1]
+const port = options.port || options.p
+const role = options.role || options.r
 
-if (command === 'registry') registry()
-if (command === 'server') {
-  const registryPubKey = options._[1]
-  const port = options.port || options.p || 8080
-  const role = options.role || options.r
-  server(fromBase32(registryPubKey), port, role)
-}
-if (command === 'client') {
-  const registryPubKey = options._[1]
-  const port = options.port || options.p || 8080
-  const role = options.role || options.r
-  client(fromBase32(registryPubKey), port, role)
-}
+if (command === 'server') server(fromBase32(registryPubKey), port, role)
+else if (command === 'client') client(fromBase32(registryPubKey), port, role)
+else registry()
